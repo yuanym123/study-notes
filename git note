@@ -1,0 +1,70 @@
+一.git工作流程
+克隆 Git 资源作为工作目录。
+在克隆的资源上添加或修改文件。 
+如果其他人修改了，你可以更新资源。
+在提交前查看修改。
+提交修改。
+在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。
+二.git操作
+1.创建仓库
+git init [git_name]
+2.将文件纳入版本控制
+git add file
+git add . 添加所有文件
+3.克隆git
+git clone source [target_dir]
+example：git clone git://github.com/schacon/grit.git mygrit
+4.查看项目当前状态
+git status [-s]
+-s简短输出
+5.查看已写入缓存与已修改但尚未写入缓存的改动的区别
+git diff 
+尚未缓存的改动：git diff 
+查看已缓存的改动： git diff --cached 
+查看已缓存的与未缓存的所有改动：git diff HEAD 
+显示摘要而非整个 diff：git diff --stat
+6.将缓存区内容添加到仓库中
+git commit [-m] [notes]
+-m 选项以在命令行中提供提交注释
+信息配置：
+git config --global user.name 'user_name'
+git config --global user.email email
+7.打标签(为提交打标)
+git tag -a tag_name
+8.取消已缓存的内容
+git reset HEAD file
+9.删除文件
+git rm [option] file
+-f强制删除
+--cache把文件从暂存区域移除，但仍然希望保留在当前工作目录中
+-r递归删除
+10.移动/重命名文件
+git mv source_file target_file
+11.查看提交历史
+git log [option]
+--oneline查看历史记录的简洁的版本
+--graph查看历史中什么时候出现了分支、合并
+--reverse逆向显示所有日志
+三.分支管理
+1.创建分支
+git branch branch_name
+git branch列出分支
+2.切换分支
+git checkout branch_name
+git checkout -b branch_name创建新分支并立即切换到该分支下
+3.合并分支
+git merge 
+4.删除分支
+git branch -d branch_name
+四.远程仓库GitHub
+1.添加远程仓库
+git remote add [shortname] [url]
+2.查看当前远程仓库
+git remote
+3.提取远程仓库
+git fetch从远程仓库下载新分支与数据，该命令执行完后需要执行git merge 远程分支到你所在的分支。
+git merge从远端仓库提取数据并尝试合并到当前分支：
+4.推送到远程仓库
+git push remote_git_name branch_to_be_pushed
+5.删除远程仓库
+git remote rm [别名]
